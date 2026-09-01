@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="toast" class="toast"></div>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>WebMod</h1>
+        <span class="version">v1.0</span>
+        <a href="https://www.nisar.it" target="_blank" class="credits-btn">Credits</a>
+      </div>
+      <div class="header-right">
+        <select id="langSelect" class="lang-select">
+          <option value="en">EN</option>
+          <option value="it">IT</option>
+        </select>
+      </div>
+    </header>
+
+    <section class="feature-section">
+      <h2 data-i18n="title">Remove CSS Classes</h2>
+      <p class="intro-text" data-i18n="intro">Enter the classes you want to remove from page elements, separated by commas.</p>
+      
+      <div class="info-header">
+        <button id="infoBtn" class="btn btn-info">
+          <span data-i18n="infoBtn">Syntax & options info</span> <span class="arrow">▲</span>
+        </button>
+      </div>
+
+      <div id="infoPanel" class="info-panel hidden">
+        <div class="info-section">
+          <h3 data-i18n="syntax">Syntax</h3>
+          <p>
+            • <code>.class1</code> - <span data-i18n="ex1">removes class1 from elements that have it</span><br>
+            • <code>.class1 .class2</code> - <span data-i18n="ex2">removes class2 from elements inside class1</span><br>
+            • <code>.class1.class2</code> - <span data-i18n="ex3">removes class1 and class2 from elements with both</span><br>
+            • <code>.class1:-.class2</code> - <span data-i18n="ex4">removes ONLY class2 from class1 elements</span><br>
+            • <code>.class1:-.class2,.class3</code> - <span data-i18n="ex5">removes ONLY class2 and class3 from class1 elements</span>
+          </p>
+        </div>
+        <div class="info-section">
+          <h3 data-i18n="options">Options</h3>
+           <p>
+            • <strong data-i18n="apply">Apply:</strong> <span data-i18n="applyDesc">Removes classes and activates surveillance</span><br>
+            • <strong data-i18n="stop">Stop:</strong> <span data-i18n="stopDesc">Stops surveillance (already removed classes stay removed)</span><br>
+            • <strong data-i18n="save">Save:</strong> <span data-i18n="saveDesc">Saves current text for next session</span><br>
+            • <strong data-i18n="reset">Reset:</strong> <span data-i18n="resetDesc">Reloads the page, everything returns as before</span>
+          </p>
+          <p class="help-note" data-i18n="surveillanceNote"><strong>Surveillance</strong> automatically re-removes classes if something adds them back (e.g. site scripts).</p>
+        </div>
+        <div class="info-section">
+          <h3 data-i18n="shortcut">Shortcut</h3>
+          <p><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>W</kbd> <span data-i18n="openPlugin">open plugin</span></p>
+        </div>
+      </div>
+
+      <label class="input-label" data-i18n="selectorsTitle">CSS Selectors</label>
+      <textarea id="classesInput" placeholder=".class1 , .class1 .class2"></textarea>
+      <div class="button-row">
+        <button id="applyBtn" class="btn btn-primary" data-i18n="apply">Apply</button>
+        <button id="stopBtn" class="btn btn-danger" data-i18n="stop">Stop</button>
+        <div class="spacer"></div>
+        <button id="saveBtn" class="btn btn-secondary" data-i18n="save">Save</button>
+        <button id="resetBtn" class="btn btn-secondary" data-i18n="reset">Reset</button>
+      </div>
+      <p id="statusText" class="status"></p>
+    </section>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
